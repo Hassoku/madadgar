@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Masjid\Auth;
 
+use App\City;
 use App\User;
+use App\State;
 use App\Masjid;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,7 +38,11 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('masjid.auth.register');
+        
+        $data = [];
+        $data['cities'] = City::all();
+        $data['states'] = State::all();
+        return view('masjid.auth.register',$data);
     }
 
     /**
@@ -106,8 +112,14 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:masjids'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'imam' => ['required'],
+            'phone' => ['required','unique:masjids'],
+            'city' => ['required'],
+            'state' => ['required'],
+            'address' => ['required'],
+            
         ]);
     }
 
@@ -119,10 +131,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+  
+      
         return Masjid::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'imam' =>  $data['imam'],
+            'phone' => $data['phone'],
+            'city' => $data['city'],
+            'state' => $data['state'],
+            'address' => $data['address'],
+            'status' =>1
         ]);
     }
 }

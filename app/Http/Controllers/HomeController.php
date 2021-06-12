@@ -25,4 +25,22 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function about()
+    {
+        return view('layouts.pages.about');
+    }  
+     public function contact()
+    {
+        return view('layouts.pages.contact');
+    }
+
+    public function requests()
+    {
+        return view('layouts.pages.requests');
+    }
+
+    public function urgentDonation()
+    {
+        return view('layouts.pages.donationdetail');
+    }
 }

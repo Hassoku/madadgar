@@ -13,7 +13,7 @@ class Masjid extends  Authenticatable
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'email', 'password','name'
+        'email', 'password','name','phone','city','state','address','imam',
     ];
 
     /**

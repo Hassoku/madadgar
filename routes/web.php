@@ -73,7 +73,7 @@ Route::prefix('serviceprovider')->name('serviceprovider.')->group(function(){
  
     
     Route::middleware('auth:serviceprovider')->group(function(){
-     Route::get('dashboard','ServiceProvider\DashboardController@index')->name('dashboard');
+    Route::get('dashboard','ServiceProvider\DashboardController@index')->name('dashboard');
  });
  
  
@@ -90,3 +90,8 @@ Route::prefix('donor')->middleware('auth')->group(function(){
 
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::get('/requests', 'HomeController@requests')->name('requests');
+Route::get('/donationdetail', 'HomeController@donationDetail')->name('donationDetail');
+Route::get('/urgentdonations', 'HomeController@urgentDonation')->name('urgent.donations');
