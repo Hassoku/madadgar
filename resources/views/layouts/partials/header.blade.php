@@ -17,12 +17,12 @@
                     <nav class="d-flex flex-wrap align-items-center justify-content-center">
                         <div class="header-left">
                             <ul class="mb-0 list-unstyled d-inline-flex">
-                                <li><a href="{{route('home')}}">Home</a>
+                                <li><a href="{{route('home')}}">{{__('vocab.home')}}</a>
                           
                                 </li>
                           
                          
-                                <li><a href="{{route('about')}}" title="">About Us</a></li>
+                                <li><a href="{{route('about')}}" title="">{{__('vocab.about')}}</a></li>
                                 <li><a href="{{route('requests')}}" title="">Mosque Request</a></li>
                                 <li><a href="{{route('urgent.donations')}}" title="">Urgent Donations</a></li>
                                 <li><a href="{{route('contact')}}" title="">Contact Us</a></li>
@@ -53,6 +53,15 @@
                                                      </li>
                         
                         @endguest
+                        <li class="menu-item-has-children"><a href="javascript:void(0);" title="">{{ Config::get('languages')[App::getLocale()] }}</a>
+                                        <ul class="mb-0 list-unstyled">
+                                             @foreach (Config::get('languages') as $lang => $language)
+        @if ($lang != App::getLocale())
+                                            <li><a href="{{ route('lang.switch', $lang) }}" title="">{{$language}}</a></li>
+                                           @endif
+    @endforeach
+                                        </ul>
+                                    </li>
                             </ul>
                         </div>
                         <div class="header-right">

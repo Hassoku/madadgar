@@ -38,5 +38,4 @@
                     </div>
                 </div>
             </section>
-            @component('layouts.components.news')
-            @endcomponent
+     

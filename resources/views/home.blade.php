@@ -10,9 +10,6 @@
 @endcomponent
 @component('layouts.components.requests')
 @endcomponent
-@component('layouts.components.services')
-@endcomponent
-@component('layouts.components.news')
-@endcomponent
+
 
 @endsection

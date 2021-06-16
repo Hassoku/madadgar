@@ -95,3 +95,9 @@ Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/requests', 'HomeController@requests')->name('requests');
 Route::get('/donationdetail', 'HomeController@donationDetail')->name('donationDetail');
 Route::get('/urgentdonations', 'HomeController@urgentDonation')->name('urgent.donations');
+
+
+
+
+
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);

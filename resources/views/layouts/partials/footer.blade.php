@@ -1,3 +1,4 @@
+
 <footer>
                 <div class="w-100 pt-100 dark-layer pb-50 opc85 position-relative">
                     <div class="fixed-bg patern-bg back-blend-multiply dark-bg" style="background-image: url(assets/images/pattern-bg.jpg);"></div>
