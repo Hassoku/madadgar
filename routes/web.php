@@ -47,13 +47,25 @@ Route::prefix('masjid')->name('masjid.')->group(function(){
    Route::post('register', 'Masjid\Auth\RegisterController@register');
 
 
-   
+
    Route::middleware('auth:masjid')->group(function(){
     Route::get('dashboard','Masjid\DashboardController@index')->name('dashboard');
+
+
+    //Request Routes
+    Route::resource('requests','Masjid\RequestController');
+
+    //Urgent Routes
+
+
+    //Message
+
+
+
 });
 
 
-    
+
 
 });
 
@@ -66,25 +78,26 @@ Route::prefix('serviceprovider')->name('serviceprovider.')->group(function(){
     Route::post('password/email', 'ServiceProvider\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     Route::get('password/reset/{token}', 'ServiceProvider\Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'ServiceProvider\Auth\ResetPasswordController@reset')->name('password.update');
- 
+
     Route::get('register', 'ServiceProvider\Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'ServiceProvider\Auth\RegisterController@register');
- 
- 
-    
+
+
+
     Route::middleware('auth:serviceprovider')->group(function(){
     Route::get('dashboard','ServiceProvider\DashboardController@index')->name('dashboard');
  });
- 
- 
-     
- 
+
+
+
+
  });
 
 Auth::routes();
 
 Route::prefix('donor')->middleware('auth')->group(function(){
     Route::get('dashboard','DashboardController@index')->name('dashboard');
+     Route::get('profile','DonorController@profile')->name('profile');
 });
 
 

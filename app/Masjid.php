@@ -24,4 +24,8 @@ class Masjid extends  Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function requests(){
+        return $this->hasMany(MasjidRequest::class);
+    }
 }

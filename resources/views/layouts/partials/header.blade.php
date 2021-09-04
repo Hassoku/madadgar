@@ -23,15 +23,15 @@
                           
                          
                                 <li><a href="{{route('about')}}" title="">{{__('vocab.about')}}</a></li>
-                                <li><a href="{{route('requests')}}" title="">Mosque Request</a></li>
-                                <li><a href="{{route('urgent.donations')}}" title="">Urgent Donations</a></li>
-                                <li><a href="{{route('contact')}}" title="">Contact Us</a></li>
+                                <li><a href="{{route('requests')}}" title="">{{__('vocab.mosque_request')}}</a></li>
+                                <li><a href="{{route('urgent.donations')}}" title="">{{__('vocab.urgent_donation')}}</a></li>
+                                <li><a href="{{route('contact')}}" title="">{{__('vocab.contact')}}</a></li>
                                 @guest
-                                <li class="menu-item-has-children"><a href="javascript:void(0);" title="">  {{ __('Login') }} </a>
+                                <li class="menu-item-has-children"><a href="javascript:void(0);" title="">  {{ __('vocab.login') }} </a>
                                     <ul class="mb-0 list-unstyled">
-                                        <li><a href="{{ route('login') }}" title="">  {{ __('Login') }}  As Donator</a></li>
-                                        <li><a  href="{{ route('serviceprovider.login') }}" title="">  {{ __('Login') }}  As Service Provider</a></li>
-                                        <li><a  href="{{ route('masjid.login') }}" title="">  {{ __('Login') }}  As Imam Masjid</a></li>
+                                        <li><a href="{{ route('login') }}" title="">  {{ __('vocab.login_as_donator') }}</a></li>
+                                        <li><a  href="{{ route('serviceprovider.login') }}" title="">  {{ __('vocab.login_as_serviceprovider') }}</a></li>
+                                        <li><a  href="{{ route('masjid.login') }}" title="">  {{ __('vocab.login_as_imam_masjid') }}</a></li>
                                     </ul>
                                 </li>
                                 @if (Route::has('register'))
@@ -44,14 +44,22 @@
                                 </li>
                                 @endif
                         @else
-                        <li><a href="contact.html" title=""> {{ __('Dashboard') }}</a></li>
-                        <li><a href="contact.html" title=""  onclick="event.preventDefault();
+                             <li class="menu-item-has-children"><a href="#" title="">{{Auth::user()->name}}</a>
+                                        <ul class="mb-0 list-unstyled">
+            
+                                            <li><a href="{{route('dashboard')}}" title="">{{__('Dashboard')}}</a></li>
+                                                  <li><a href="{{route('profile')}}" title="">{{__('Profile')}}</a></li>
+                                                        <li ><a href="{{ route('logout') }}" title=""  onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
                                                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                                      </li>
-                        
+                                           
+
+                                        </ul>
+                                    </li>
+                   
                         @endguest
                         <li class="menu-item-has-children"><a href="javascript:void(0);" title="">{{ Config::get('languages')[App::getLocale()] }}</a>
                                         <ul class="mb-0 list-unstyled">

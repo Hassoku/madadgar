@@ -21,3 +21,4 @@
 
     <!-- Main JS-->
     <script src="{{asset('assets/admin/js/main.js')}}"></script>
+    @yield('scripts')

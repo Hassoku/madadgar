@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10),
             'email_verified_at' => now(),
-        ]);*/
+        ]);
 
         DB::table('states')->insert([
             'state' => Str::random(10)
@@ -64,8 +64,24 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('specialities')->insert([
             'speciality' => 'Other',
+        ]);*/
+
+        DB::table('categories')->insert([
+            'name' => 'Electrical',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Access Control',
         ]);
 
+        DB::table('categories')->insert([
+            'name' => 'Acounts and Finance',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Sound System',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Human Resource',
+        ]);
 
     }
 }

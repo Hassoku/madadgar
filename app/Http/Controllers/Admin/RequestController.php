@@ -14,7 +14,10 @@ class RequestController extends Controller
      */
     public function index()
     {
-        //
+                $requests = MasjidRequest::with(['applicant','category'])->get();
+   
+        return view('masjid.pages.requests.index',['requests'=>$requests]);
+
     }
 
     /**

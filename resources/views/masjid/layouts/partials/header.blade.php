@@ -7,30 +7,30 @@
                         </a>
                     </div>
                     @guest
-                  
+
                     @else
                     <div class="header__navbar">
                         <ul class="list-unstyled">
                             <li class="has-sub">
-                                <a href="#">
+                                <a href="{{route('masjid.dashboard')}}">
                                     <i class="fas fa-tachometer-alt"></i>Dashboard
                                     <span class="bot-line"></span>
                                 </a>
-                         
+
                             </li>
-                       
+
                             <li class="has-sub">
                                 <a href="#">
                                     <i class="fas fa-copy"></i>
                                     <span class="bot-line"></span>Requests</a>
                                 <ul class="header3-sub-list list-unstyled">
                                     <li>
-                                        <a href="login.html">Your Requests</a>
+                                        <a href="{{route('masjid.requests.index')}}">Your Requests</a>
                                     </li>
                                     <li>
-                                        <a href="register.html">Add Request</a>
+                                        <a href="{{route('masjid.requests.create')}}">Create Request</a>
                                     </li>
-                              
+
                                 </ul>
                             </li>
                             <li class="has-sub">
@@ -47,26 +47,24 @@
                                     <li>
                                         <a href="tab.html">Outbox</a>
                                     </li>
-                                 
-                                
-                   
+
+
+
                                 </ul>
                             </li>
                             <li class="has-sub">
                                 <a href="#">
                                     <i class="fas fa-desktop"></i>
-                                    <span class="bot-line"></span>Change Language</a>
+                                    <span class="bot-line"></span>{{ Config::get('languages')[App::getLocale()] }}</a>
                                 <ul class="header3-sub-list list-unstyled">
-                                    <li>
-                                        <a href="button.html">English</a>
-                                    </li>
-                                    <li>
-                                        <a href="badge.html">Urdu</a>
-                                    </li>
-                              
-                                 
-                                
-                   
+                                    @foreach (Config::get('languages') as $lang => $language)
+                                    @if ($lang != App::getLocale())
+                                                                        <li><a href="{{ route('lang.switch', $lang) }}" title="">{{$language}}</a></li>
+                                                                       @endif
+                                @endforeach
+
+
+
                                 </ul>
                             </li>
                         </ul>
@@ -118,10 +116,10 @@
                                         <a href="#">
                                             <i class="zmdi zmdi-account"></i>Account</a>
                                     </div>
-                                    
-                                  
+
+
                                 </div>
-                             
+
                             </div>
                         </div>
                         <div class="account-wrap">
@@ -153,8 +151,8 @@
                                             <a href="#">
                                                 <i class="zmdi zmdi-account"></i>Profile</a>
                                         </div>
-                                     
-                                   
+
+
                                     </div>
                                     <div class="account-dropdown__footer">
                                         <a href="{ route('masjid.logout') }}"  onclick="event.preventDefault();
