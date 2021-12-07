@@ -13,8 +13,14 @@
         <link rel="stylesheet" href="{{asset('frontend/assets/css/jquery.fancybox.min.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/assets/css/jquery.bootstrap-touchspin.min.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/assets/css/perfect-scrollbar.css')}}">
+
+        @if (App::getLocale() == 'ur')
+        <link rel="stylesheet" href="{{asset('frontend/assets/css/rtl-slick.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/assets/css/rtl.css')}}">
+        @else
         <link rel="stylesheet" href="{{asset('frontend/assets/css/slick.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}">
+        @endif
         <link rel="stylesheet" href="{{asset('frontend/assets/css/responsive.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/assets/css/color.css')}}">
     </head>
