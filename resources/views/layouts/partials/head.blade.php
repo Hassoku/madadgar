@@ -4,7 +4,7 @@
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <link rel="icon" href="{{asset('frontend/assets/images/favicon.png')}}" sizes="35x35" type="image/png">
-        <title>Maktab - The Islamic Center HTML5 Template</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <link rel="stylesheet" href="{{asset('frontend/assets/css/all.min.css')}}">
         <link rel="stylesheet" href="{{asset('frontend/assets/css/flaticon.css')}}">

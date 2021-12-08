@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       /* DB::table('admins')->insert([
+       DB::table('admins')->insert([
             'name' => Str::random(10),
             'email' => 'admin@gmail.com',
             'password' => Hash::make('password'),
@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
 
-        DB::table('users')->insert([
+       /* DB::table('users')->insert([
             'name' => Str::random(10),
             'email' => 'user@gmail.com',
             'password' => Hash::make('password'),

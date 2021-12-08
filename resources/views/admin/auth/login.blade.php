@@ -4,42 +4,44 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-      
-               
-                                <div class="card">
-                                    <div class="card-header">Login Form</div>
+
+
+                                <div class="card" style="top: 127px;">
+                                    <div class="card-header" style="background-color: #38c172; color: #fff;">{{ __('vocab.admin_login') }}</div>
                                     <div class="card-body card-block">
                                         <form action="{{ route('admin.login') }}" method="post" class="">
                                            @csrf
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
-                                                        <i class="fa fa-envelope"></i>
+                                                        <i style="margin-top:11px" class="fa fa-envelope"></i>
                                                     </div>
-                                                    <input type="email" id="email" name="email" placeholder="Email" class="form-control">
-                                                    
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                                    <input style="margin-left:6px" type="email" id="email" name="email" placeholder="Email" class="form-control">
+
+
                                                 </div>
+                                                @error('email')
+                                                <span style="margin-left:25px"  role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                             @enderror
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
-                                                        <i class="fa fa-asterisk"></i>
+                                                        <i style="margin-top:11px" class="fa fa-asterisk"></i>
                                                     </div>
-                                                    <input type="password" id="password" name="password" placeholder="Password" class="form-control">
-                                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                                    <input style="margin-left:10px" type="password" id="password" name="password" placeholder="Password" class="form-control">
+
                                                 </div>
+                                                @error('password')
+                                                <span style="margin-left:25px"  role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                             </div>
                                             <div class="form-actions form-group">
-                                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                                                <button style="margin-left: 22px;" type="submit" class="btn btn-success btn-sm">Submit</button>
                                             </div>
                                             @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -51,8 +53,8 @@
                                 </div>
                             </div>
 
-               
-            
+
+
         </div>
     </div>
 </div>

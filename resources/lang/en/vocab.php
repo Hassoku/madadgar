@@ -6,6 +6,7 @@ return [
 	'home' => 'Home',
 	'about' => 'About',
 	'contact' => 'Contact Us',
+    'admin_login'=>'Admin Login',
 	'login' =>'Login',
 	'urgent_donation' => 'Ugent Donations',
 	'mosque_request' =>'Mosque Request',
