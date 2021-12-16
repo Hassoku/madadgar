@@ -16,21 +16,20 @@
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Admin\Auth\LoginController@login');
-   Route::post('logout', 'Admin\Auth\LoginController@logout')->name('logout');
-   Route::get('password/reset', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-   Route::post('password/email', 'Admin\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-   Route::get('password/reset/{token}', 'Admin\Auth\ResetPasswordController@showResetForm')->name('password.reset');
-   Route::post('password/reset', 'Admin\Auth\ResetPasswordController@reset')->name('password.update');
+    Route::post('logout', 'Admin\Auth\LoginController@logout')->name('logout');
+    Route::get('password/reset', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::post('password/email', 'Admin\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('password/reset/{token}', 'Admin\Auth\ResetPasswordController@showResetForm')->name('password.reset');
+    Route::post('password/reset', 'Admin\Auth\ResetPasswordController@reset')->name('password.update');
 
-   Route::middleware('auth:admin')->group(function(){
+    Route::middleware('auth:admin')->group(function(){
        Route::get('dashboard','Admin\DashboardController@index')->name('dashboard');
-
        Route::resource('request','Admin\RequestController');
        Route::resource('masjid','Admin\MasjidController');
        Route::resource('donor','Admin\DonorController');
        Route::resource('provider','Admin\ServiceProviderdController');
        Route::post('/donor/status','Admin\DonorController@updateStatus')->name('donor.status');
-   });
+    });
 });
 
 Route::prefix('masjid')->name('masjid.')->group(function(){
@@ -42,31 +41,12 @@ Route::prefix('masjid')->name('masjid.')->group(function(){
    Route::post('password/email', 'Masjid\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
    Route::get('password/reset/{token}', 'Masjid\Auth\ResetPasswordController@showResetForm')->name('password.reset');
    Route::post('password/reset', 'Masjid\Auth\ResetPasswordController@reset')->name('password.update');
-
    Route::get('register', 'Masjid\Auth\RegisterController@showRegistrationForm')->name('register');
    Route::post('register', 'Masjid\Auth\RegisterController@register');
-
-
-
    Route::middleware('auth:masjid')->group(function(){
-    Route::get('dashboard','Masjid\DashboardController@index')->name('dashboard');
-
-
-    //Request Routes
-    Route::resource('requests','Masjid\RequestController');
-
-    //Urgent Routes
-
-
-    //Message
-
-
-
-});
-
-
-
-
+       Route::get('dashboard','Masjid\DashboardController@index')->name('dashboard');
+       Route::resource('requests','Masjid\RequestController');
+    });
 });
 
 Route::prefix('serviceprovider')->name('serviceprovider.')->group(function(){
@@ -78,20 +58,12 @@ Route::prefix('serviceprovider')->name('serviceprovider.')->group(function(){
     Route::post('password/email', 'ServiceProvider\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     Route::get('password/reset/{token}', 'ServiceProvider\Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'ServiceProvider\Auth\ResetPasswordController@reset')->name('password.update');
-
     Route::get('register', 'ServiceProvider\Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'ServiceProvider\Auth\RegisterController@register');
-
-
-
     Route::middleware('auth:serviceprovider')->group(function(){
     Route::get('dashboard','ServiceProvider\DashboardController@index')->name('dashboard');
- });
-
-
-
-
- });
+});
+});
 
 Auth::routes();
 
